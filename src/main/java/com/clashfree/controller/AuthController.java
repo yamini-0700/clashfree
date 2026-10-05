@@ -1,5 +1,6 @@
 package com.clashfree.controller;
 
+import com.clashfree.dto.LoginRequest;
 import com.clashfree.dto.RegisterRequest;
 import com.clashfree.entity.User;
 import com.clashfree.service.UserService;
@@ -19,5 +20,10 @@ public class AuthController {
     @PostMapping("/register")
     public User register(@RequestBody RegisterRequest request) {
         return userService.register(request);
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest request) {
+        return userService.login(request);
     }
 }
