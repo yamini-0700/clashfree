@@ -2,6 +2,7 @@ package com.clashfree.controller;
 
 import com.clashfree.entity.Teacher;
 import com.clashfree.service.TeacherService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class TeacherController {
     private TeacherService teacherService;
 
     @PostMapping
-    public Teacher create(@RequestBody Teacher teacher) {
+    public Teacher create(@Valid @RequestBody Teacher teacher) {
         return teacherService.create(teacher);
     }
 
@@ -37,7 +38,7 @@ public class TeacherController {
     }
 
     @PutMapping("/{id}")
-    public Teacher update(@PathVariable Long id, @RequestBody Teacher teacher) {
+    public Teacher update(@PathVariable Long id, @Valid @RequestBody Teacher teacher) {
         return teacherService.update(id, teacher);
     }
 
